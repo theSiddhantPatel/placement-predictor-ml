@@ -56,10 +56,18 @@
       </form>
 
       {% if prediction is not none %}
-      <div class="result">
-        Result: {{ "Placed ✅" if prediction == 1 else "Not Placed ❌" }}
+      <div class="result" id="prediction-box">
+        Result: {{ "Placed 🎉" if prediction == 1 else "Not Placed ❌" }}
       </div>
       {% endif %}
     </div>
   </body>
+  <script>
+    const box = document.getElementById("prediction-box");
+    if (box) {
+      setTimeout(() => {
+        box.style.display = "none";
+      }, 3500); // 3 seconds
+    }
+  </script>
 </html>
